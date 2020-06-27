@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <constant name="struts.devMode" value="true"/>
+    <constant name="struts.multipart.maxSize" value="2097152"/>
+
+    <package name="manager" namespace="/" extends="struts-default">
+        <action name="manager" class="action.manager" method="execute1">
+            <result name="success">/Allstore.jsp</result>
+        </action>
+        <action name="manageradd" class="action.manager" method="execute2">
+            <result name="success">/修改成功提示.jsp</result>
+        </action>
+        <action name="managerdis" class="action.manager" method="execute3">
+            <result name="success">/修改成功提示.jsp</result>
+        </action>
+        <action name="managerprice" class="action.manager" method="execute4">
+            <result name="success">/修改成功提示.jsp</result>
+        </action>
+    </package>
+
+    <package name="register" namespace="/" extends="struts-default">
+        <action name="register" class="action.RegisterAction">
+            <result name="success">登录.jsp</result>
+            <result name="error">register_error.jsp</result>
+        </action>
+    </package>
+
+    <package name="password_update" namespace="/" extends="struts-default">
+        <global-allowed-methods>regex:.*</global-allowed-methods>
+        <action name="password_update" class="action.PasswordUpdateAction">
+            <result name="success">登录.jsp</result>
+            <result name="error">password_update.jsp</result>
+        </action>
+    </package>
+
+
+    <package name="login" namespace="/" extends="struts-default" strict-method-invocation="false">
+        <global-allowed-methods>regex:.*</global-allowed-methods>
+        <action name="login" class="action.LoginAction">
+            <result name="3" type="chain">GetAction</result>
+            <result name="2" type="chain">manager</result>
+            <result name="1">index.jsp</result>
+            <result name="error">登录.jsp</result>
+        </action>
+        <action name="GetAction" class="action.GetAction">
+            <result name="success">3.jsp</result>
+        </action>
+    </package>
+
+    <package name="buy" namespace="/" extends="struts-default">
+        <global-allowed-methods>regex:.*</global-allowed-methods>
+        <action name="buy" class="action.BuyAction">
+            <result name="success">3.jsp</result>
+            <result name="error">3.jsp</result>
+            <result name="invalid.token">/wrong.jsp</result>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+            <interceptor-ref name="token"></interceptor-ref>
+        </action>
+    </package>
+
+
+    <package name="tuihuo" namespace="/" extends="struts-default">
+        <global-allowed-methods>regex:.*</global-allowed-methods>
+        <action name="tuihuo" class="action.TuihuoAction">
+            <result name="success">3.jsp</result>
+        </action>
+    </package>
+
+    <package name="default" namespace="/" extends="struts-default">
+        <action name="login_Reg" class="action.RootAction" method="selectmoney">
+            <result name="error">/register.jsp</result>
+            <result name="success" >moneymanager.jsp</result>
+        </action>
+        <action name="select_Reg" class="action.RootAction" method="select">
+            <result name="error">/register.jsp</result>
+            <result name="success">content.jsp</result>
+        </action>
+        <action name="delete_Reg" class="action.RootAction" method="delete">
+            <result name="error">/register.jsp</result>
+            <result name="success">storemanger.jsp</result>
+        </action>
+        <action name="insert_Reg" class="action.RootAction" method="insert">
+            <result name="error">/register.jsp</result>
+            <result name="success">storemanger.jsp</result>
+        </action>
+        <action name="selectuser_Reg" class="action.RootAction" method="selectuser">
+            <result name="error">/register.jsp</result>
+            <result name="success">usermanger.jsp</result>
+        </action>
+        <action name="updateitem_Reg" class="action.RootAction" method="updateitem">
+            <result name="error">/register.jsp</result>
+            <result name="success">content.jsp</result>
+        </action>
+        <action name="deleteitem_Reg" class="action.RootAction" method="deleteitem">
+            <result name="error">/register.jsp</result>
+            <result name="success">content.jsp</result>
+        </action>
+        <action name="insertitem_Reg" class="action.RootAction" method="insertitem">
+            <result name="error">/register.jsp</result>
+            <result name="success">content.jsp</result>
+        </action>
+        <action name="deleteuser_Reg" class="action.RootAction" method="deleteuser">
+            <result name="error">/register.jsp</result>
+            <result name="success">usermanger.jsp</result>
+        </action>
+        <action name="selectstore_Reg" class="action.RootAction" method="selectstore">
+            <result name="error">/register.jsp</result>
+            <result name="success" >storemanger.jsp</result>
+        </action>
+        <action name="selectbuy_Reg" class="action.RootAction" method="selectbuy">
+            <result name="error">/register.jsp</result>
+            <result name="success" >buymanager.jsp</result>
+        </action>
+        <action name="update_Reg" class="action.RootAction" method="updatestore">
+            <result name="error">/register.jsp</result>
+            <result name="success" >storemanger.jsp</result>
+        </action>
+    </package>
+
+
+    <package name="find" namespace="/" extends="struts-default">
+        <action name="find" class="action.FindAction">
+            <result name="success">3.jsp</result>
+        </action>
+    </package>
+
+</struts>

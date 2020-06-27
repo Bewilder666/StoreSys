@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="log4j-api-2.11.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../log4j-api-2.11.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../javassist-3.20.0-GA.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../commons-lang3-3.8.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../commons-io-2.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../commons-fileupload-1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../mysql-connector-java-8.0.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../struts2-core-2.5.20.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
